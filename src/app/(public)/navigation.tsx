@@ -20,8 +20,8 @@ const MobileItem: FC<
       'text-base',
       'font-semibold',
       'leading-7',
-      'text-gray-900',
-      'hover:bg-gray-50',
+      'text-gray-50',
+      'hover:bg-gray-200',
     )}
   >
     {children}
@@ -32,14 +32,17 @@ function MobileNavigation(): React.JSX.Element {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant='outline'>
+        <Button
+          variant='outline'
+          className='bg-transparent ring-offset-gray-50 hover:bg-blue-900'
+        >
           <span className='sr-only'>Open main menu</span>
-          <Menu aria-hidden />
+          <Menu className='text-gray-50' aria-hidden />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className='bg-blue-950 text-gray-50'>
         <SheetHeader>
-          <a href='/' className='-m-1.5 p-1.5 text-start text-lg font-bold'>
+          <a href='/' className='-m-1.5 p-1.5 text-start text-lg font-bold text-gray-50'>
             Medical App
           </a>
         </SheetHeader>
@@ -60,7 +63,7 @@ function MobileNavigation(): React.JSX.Element {
 const MenuItem: FC<
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
 > = ({ children, ...props }) => (
-  <a {...props} className='text-sm font-semibold leading-6 text-gray-900'>
+  <a {...props} className='text-sm font-semibold leading-6 text-gray-50'>
     {children}
   </a>
 );
@@ -69,10 +72,19 @@ export function Navigation(): React.JSX.Element {
   return (
     <nav
       aria-label='Global'
-      className='mx-auto flex max-w-full items-center justify-between p-6 lg:px-8'
+      className={cn(
+        'mx-auto',
+        'flex',
+        'max-w-full',
+        'items-center',
+        'justify-between',
+        'p-6',
+        'lg:px-8',
+        'bg-blue-950',
+      )}
     >
       <section className='flex lg:flex-1'>
-        <a href='/' className='-m-1.5 p-1.5 text-lg font-bold'>
+        <a href='/' className='-m-1.5 p-1.5 text-lg font-bold text-gray-50'>
           Medical App
         </a>
       </section>
