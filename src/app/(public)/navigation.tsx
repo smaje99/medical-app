@@ -52,7 +52,7 @@ function MobileNavigation(): React.JSX.Element {
           <MobileItem href='/features'>Features</MobileItem>
           <MobileItem href='/marketplace'>Marketplace</MobileItem>
           <MobileItem href='/company'>Company</MobileItem>
-          <Separator />
+          <Separator className='bg-gray-300/20' />
           <MobileItem href='/login'>Log in</MobileItem>
         </section>
       </SheetContent>
@@ -62,8 +62,8 @@ function MobileNavigation(): React.JSX.Element {
 
 const MenuItem: FC<
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
-> = ({ children, ...props }) => (
-  <a {...props} className='text-sm font-semibold leading-6 text-gray-50'>
+> = ({ children, className, ...props }) => (
+  <a {...props} className={cn('text-sm font-semibold leading-6 text-gray-50', className)}>
     {children}
   </a>
 );
@@ -78,7 +78,7 @@ export function Navigation(): React.JSX.Element {
         'max-w-full',
         'items-center',
         'justify-between',
-        'p-6',
+        'px-6 py-4',
         'lg:px-8',
         'bg-blue-950',
       )}
@@ -101,7 +101,7 @@ export function Navigation(): React.JSX.Element {
       </section>
 
       <section className='hidden lg:flex lg:flex-1 lg:justify-end'>
-        <MenuItem href='/login'>
+        <MenuItem href='/login' className='rounded-md bg-blue-500 px-6 py-1.5'>
           Log in <span aria-hidden>&rarr;</span>
         </MenuItem>
       </section>
