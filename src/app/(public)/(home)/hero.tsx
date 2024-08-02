@@ -22,10 +22,11 @@ export default function Hero() {
   return (
     <header
       className={cn(
-        'w-[100dvw]',
-        'h-[calc(100dvh-68px)]',
-        'px-6',
+        'w-[100vw]',
+        'lg:h-[calc(100dvh-68px)]',
+        'p-6',
         'flex',
+        'flex-wrap',
         'items-center',
         'justify-center',
         'gap-10',
@@ -33,7 +34,7 @@ export default function Hero() {
         'dark:bg-blue-950',
       )}
     >
-      <section className='flex flex-col pl-16'>
+      <section className='flex flex-col lg:pl-16'>
         <h1
           className={cn(
             'mb-5',
