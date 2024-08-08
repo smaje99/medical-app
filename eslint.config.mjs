@@ -88,6 +88,12 @@ export default [
 
         alias: true,
       },
+
+      'import/ignore': ['lucide-react'],
+
+      react: {
+        version: 'detect',
+      },
     },
 
     rules: {
