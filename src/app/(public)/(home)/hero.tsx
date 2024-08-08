@@ -27,14 +27,16 @@ export default function Hero() {
         'p-6',
         'flex',
         'flex-wrap',
+        'md:flex-nowrap',
         'items-center',
         'justify-center',
         'gap-10',
+        'box-border',
         'bg-white',
         'dark:bg-blue-950',
       )}
     >
-      <section className='flex flex-col lg:pl-16'>
+      <section className='flex flex-col md:max-w-[40vw] lg:pl-16'>
         <h1
           className={cn(
             'mb-5',
@@ -132,12 +134,12 @@ export default function Hero() {
           />
         </section>
       </section>
-      <section className='w-full px-4 lg:w-6/12'>
-        <div className='relative z-10 inline-block pt-11 lg:pt-0'>
+      <section className='mx-auto mb-6 box-border flex w-full px-4 lg:w-6/12'>
+        <div className='relative z-10 inline-block pt-8 lg:pt-0'>
           <Image
             src='https://cdn.tailgrids.com/1.0/assets/images/hero/hero-image-01.png'
             alt='hero'
-            className='max-w-full lg:ml-auto'
+            className='max-w-full md:max-w-[40vw] lg:ml-auto'
             width={500}
             height={650}
           />
