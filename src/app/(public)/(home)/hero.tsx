@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 
+import { SearchBar } from './search-bar';
+
 export default function Hero() {
   return (
     <header
@@ -37,6 +39,9 @@ export default function Hero() {
           With TailGrids, business and students thrive together. Business can perfectly
           match their staffing to changing demand throughout the dayed.
         </p>
+
+        <SearchBar />
+
         <ul className='flex flex-wrap items-center'>
           <li>
             <a

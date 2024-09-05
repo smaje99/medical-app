@@ -7,20 +7,25 @@ import { cn } from '@/lib/utils';
 
 export function SearchBar(): JSX.Element {
   return (
-    <form className='mx-auto max-w-md'>
-      <Label
-        htmlFor='default-search'
-        className='sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white'
-      >
+    <form className='mb-6'>
+      <Label htmlFor='default-search' className='sr-only'>
         Search Mockups, Logos...
       </Label>
-      <div className='relative'>
-        <div
-          className={
-            'pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3'
-          }
-        >
-          <Search />
+      <div
+        className={cn(
+          'w-full',
+          'flex flex-nowrap gap-4',
+          'p-2',
+          'border',
+          'border-gray-300',
+          'rounded-lg',
+          'bg-gray-50',
+          'dark:bg-gray-700',
+          'dark:border-gray-600',
+        )}
+      >
+        <div className='pointer-events-none flex items-center ps-3'>
+          <Search aria-disabled className='text-gray-800' />
         </div>
         <Input
           type='search'
@@ -28,27 +33,19 @@ export function SearchBar(): JSX.Element {
           className={cn(
             'block',
             'w-full',
-            'p-4',
-            'ps-10',
             'text-sm',
+            'ps-0',
             'text-gray-900',
-            'border',
-            'border-gray-300',
-            'rounded-lg',
-            'bg-gray-50',
-            'focus:ring-blue-500',
-            'focus:border-blue-500',
-            'dark:bg-gray-700',
-            'dark:border-gray-600',
+            'bg-transparent',
+            'border-transparent',
             'dark:placeholder-gray-400',
-            'dark:text-white',
-            'dark:focus:ring-blue-500',
-            'dark:focus:border-blue-500',
           )}
           placeholder='Search Mockups, Logos...'
           required
         />
-        <Button type='submit'>Search</Button>
+        <Button type='submit' className='bg-blue-700 text-gray-50'>
+          Search
+        </Button>
       </div>
     </form>
   );
