@@ -48,11 +48,9 @@ export default function Hero() {
       )}
     >
       <section className='flex flex-col md:max-w-[40vw] lg:pl-16'>
-        <h1 className='mb-4 text-pretty text-4xl font-bold leading-tight'>
-          Book your <br />
-          <span className='w-full text-blue-500'>
-            <TransitionalText texts={SPECIALTIES} />
-          </span>
+        <h1 className='mb-4 min-h-28 text-pretty text-4xl font-bold leading-tight'>
+          Book your{' '}
+          <TransitionalText words={SPECIALTIES} className='w-full text-blue-500' />
         </h1>
         <h2 className='mb-5 text-nowrap text-2xl font-bold'>Sessions now!</h2>
         <p className='mb-8 text-balance text-base'>

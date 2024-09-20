@@ -1,26 +1,45 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { default as TextTransition, presets } from 'react-text-transition';
+
+import { cn } from '@/lib/utils';
 
 type Props = {
-  readonly texts: string[];
+  readonly words: string[];
+  readonly intervalDuration?: number;
+  readonly className?: string;
 };
 
-export function TransitionalText({ texts }: Props): JSX.Element {
-  const [index, setIndex] = useState(0);
+export function TransitionalText({
+  words,
+  intervalDuration = 3000,
+  className = '',
+}: Props): JSX.Element {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setIndex((currentIndex) => currentIndex + 1);
-    }, 3000);
+      setActiveIndex((currentIndex) => (currentIndex + 1) % words.length);
+    }, intervalDuration);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [intervalDuration, words.length]);
 
   return (
-    <TextTransition springConfig={presets.wobbly}>
-      {texts[index % texts.length]}
-    </TextTransition>
+    <AnimatePresence mode='wait'>
+      <motion.span
+        key={activeIndex}
+        initial={{ y: '4rem', opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: '-4rem', opacity: 0 }}
+        className={cn(
+          'inline text-current text-center transition-all duration-500',
+          className,
+        )}
+      >
+        {words[activeIndex]}
+      </motion.span>
+    </AnimatePresence>
   );
 }
